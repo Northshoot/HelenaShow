@@ -29,8 +29,9 @@ public final class R {
         public static final int white=0x7f040008;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int scan=0x7f020001;
+        public static final int dialog_background=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int scan=0x7f020002;
     }
     public static final class id {
         public static final int connection_state=0x7f080001;
@@ -42,16 +43,18 @@ public final class R {
         public static final int header_columt_1=0x7f080002;
         public static final int header_columt_2=0x7f080003;
         public static final int header_columt_3=0x7f080004;
-        public static final int last_seen=0x7f08000c;
         public static final int last_updated=0x7f080008;
-        public static final int menu_connect=0x7f08000f;
-        public static final int menu_disconnect=0x7f080010;
-        public static final int menu_refresh=0x7f08000e;
-        public static final int menu_scan=0x7f080011;
-        public static final int menu_stop=0x7f080012;
+        public static final int list_observed=0x7f08000f;
+        public static final int menu_connect=0x7f080011;
+        public static final int menu_disconnect=0x7f080012;
+        public static final int menu_refresh=0x7f080010;
+        public static final int menu_scan=0x7f080013;
+        public static final int menu_stop=0x7f080014;
         public static final int observ_time=0x7f08000a;
-        public static final int observation_list=0x7f08000d;
         public static final int observed_addr=0x7f080009;
+        public static final int popup_header=0x7f08000c;
+        public static final int popup_header_columt_1=0x7f08000d;
+        public static final int popup_header_columt_2=0x7f08000e;
     }
     public static final class layout {
         public static final int actionbar_indeterminate_progress=0x7f030000;
@@ -72,11 +75,12 @@ public final class R {
         public static final int ble_not_supported=0x7f050002;
         public static final int connected=0x7f050007;
         public static final int disconnected=0x7f050008;
-        public static final int empty=0x7f050017;
+        public static final int empty=0x7f050018;
         public static final int error_bluetooth_not_supported=0x7f05000a;
         public static final int label_data=0x7f050003;
         public static final int label_device_address=0x7f050004;
         public static final int label_last_seen=0x7f050014;
+        public static final int label_observer=0x7f050016;
         public static final int label_state=0x7f050005;
         /**  Menu items 
          */
@@ -86,7 +90,7 @@ public final class R {
         public static final int menu_stop=0x7f050011;
         public static final int no_data=0x7f050006;
         public static final int number=0x7f050013;
-        public static final int observation_time=0x7f050016;
+        public static final int observation_time=0x7f050017;
         public static final int observed_device=0x7f050015;
         public static final int title_devices=0x7f050009;
         public static final int title_node_detail=0x7f050001;
