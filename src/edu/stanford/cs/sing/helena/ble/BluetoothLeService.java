@@ -49,6 +49,10 @@ public class BluetoothLeService extends Service {
 			"com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED";
 	public final static String ACTION_DATA_AVAILABLE =
 			"edu.stanford.cs.sing.helena.ble.ACTION_DATA_AVAILABLE";
+	public final static String ACTION_NOTIFY_DATA_AVAILABLE =
+			"edu.stanford.cs.sing.helena.ble.ACTION_NOTIFY_DATA_AVAILABLE";
+	public final static String ACTION_READ_DATA_AVAILABLE =
+			"edu.stanford.cs.sing.helena.ble.ACTION_READ_DATA_AVAILABLE";
 	public final static String EXTRA_DATA =
 			"edu.stanford.cs.sing.helena.ble.EXTRA_DATA";
 	public final static String BYTE_DATA =
@@ -97,15 +101,25 @@ public class BluetoothLeService extends Service {
 		public void onCharacteristicRead(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic,
 				int status) {
+			Log.e(TAG, "Received unknown characteristic!" + characteristic.getUuid());
 			if (status == BluetoothGatt.GATT_SUCCESS) {
-				broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+				if (characteristic.getUuid()
+						.equals(HelenaGattAttributes.PIPE_READDEVICE_DATAAVAILABLE_TX)){
+					broadcastUpdate(ACTION_NOTIFY_DATA_AVAILABLE, characteristic);
+				} else if (characteristic.getUuid()
+						.equals(HelenaGattAttributes.PIPE_READDEVICE_OBSERVATION_SET)){
+					broadcastUpdate(ACTION_READ_DATA_AVAILABLE, characteristic);
+				}else{
+					Log.e(TAG, "Received unknown characteristic!");
+				}
+				
 			}
 		}
 
 		@Override
 		public void onCharacteristicChanged(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic) {
-			
+			Log.d(TAG, "onCharacteristicChanged "+ characteristic.toString());
 			broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
 		}
 	};
